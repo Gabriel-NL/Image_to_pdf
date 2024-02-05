@@ -12,11 +12,11 @@ def list_and_merge_images_to_pdf(folder_path):
         files = [f for f in files if os.path.isfile(os.path.join(folder_path, f))]
 
         # Print the number of files
-        print(f"Number of files in '{folder_path}': {len(files)}\n")
+        #print(f"Number of files in '{folder_path}': {len(files)}\n")
 
         # Print the name of each file along with its extension
-        for file in files:
-            print(f"File: {file}")
+        #for file in files:
+            #print(f"File: {file}")
 
         # Filter for image files
         image_extensions = {".png", ".jpg", ".jpeg", ".gif", ".bmp", ".tiff", ".webp"}
@@ -31,8 +31,9 @@ def list_and_merge_images_to_pdf(folder_path):
         output_folder = os.path.join(script_directory, "output_folder")
         os.makedirs(output_folder, exist_ok=True)
 
-        # Merge ordered images into a single pdf file
-        pdf_output_path = os.path.join(folder_path, f"{os.path.basename(folder_path)}.pdf")
+        pdf_output_path = os.path.join(script_directory, "output_folder", f"{os.path.basename(folder_path)}.pdf")
+
+        
 
         pdf_writer = canvas.Canvas(pdf_output_path, pagesize=letter)
 
@@ -46,7 +47,7 @@ def list_and_merge_images_to_pdf(folder_path):
 
         pdf_writer.save()
 
-        print(f"PDF created: {pdf_output_path}")
+        #print(f"PDF created: {pdf_output_path}")
 
     except FileNotFoundError:
         print(f"Folder '{folder_path}' not found.")
@@ -60,3 +61,9 @@ if __name__ == "__main__":
         list_and_merge_images_to_pdf(target_folder)
     else:
         print("Invalid folder path. Please provide a valid folder path.")
+
+def process_folder(folder_path):
+    if os.path.exists(folder_path) and os.path.isdir(folder_path):
+        list_and_merge_images_to_pdf(folder_path)
+    else:
+        print(f"Invalid folder path: {folder_path}")
