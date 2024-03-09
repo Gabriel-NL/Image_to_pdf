@@ -55,10 +55,12 @@ def list_and_merge_images_to_pdf(folder_path):
         print(f"An error occurred: {e}")
 
 if __name__ == "__main__":
-    target_folder = input(r"Enter the folder path: ")
+    target_folder = "input_folder"
+    print("Initiating process...")
 
     if os.path.exists(target_folder) and os.path.isdir(target_folder):
         list_and_merge_images_to_pdf(target_folder)
+        print("Process finished, check output folder")
     else:
         print("Invalid folder path. Please provide a valid folder path.")
 
