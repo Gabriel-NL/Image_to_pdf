@@ -21,7 +21,7 @@ def list_and_merge_images_to_pdf(folder_path):
         # Filter for image files
         image_extensions = {".png", ".jpg", ".jpeg", ".gif", ".bmp", ".tiff", ".webp"}
         image_files = [f for f in files if os.path.splitext(f.lower())[1] in image_extensions]
-
+        image_files.sort()
         if not image_files:
             print("No image files found in the specified folder.")
             return
@@ -55,9 +55,9 @@ def list_and_merge_images_to_pdf(folder_path):
         print(f"An error occurred: {e}")
 
 if __name__ == "__main__":
-    target_folder = "input_folder"
+    target_folder = input("Enter the path to the folder containing images: ")
     print("Initiating process...")
-
+    print("This could take a while, depending on the number of images...")
     if os.path.exists(target_folder) and os.path.isdir(target_folder):
         list_and_merge_images_to_pdf(target_folder)
         print("Process finished, check output folder")
