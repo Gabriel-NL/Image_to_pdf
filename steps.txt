@@ -12,5 +12,5 @@ Set-ExecutionPolicy RemoteSigned -Scope Process
 Deactivate
 
 #Install dependencies
-pip install pillow reportlab
+pip install pillow reportlab progressbar
 
