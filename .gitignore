@@ -1,2 +1,3 @@
 output_folder/
 input_folder/
+__pycache__/
