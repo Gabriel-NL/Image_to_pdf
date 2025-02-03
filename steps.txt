@@ -11,6 +11,9 @@ Set-ExecutionPolicy RemoteSigned -Scope Process
 #Deactivate virtual enviroment
 Deactivate
 
+#Save enviroment packages
+pip freeze > requirements.txt
+
 #Install dependencies
 pip install pillow reportlab progressbar
 

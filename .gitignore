@@ -1,3 +1,5 @@
 output_folder/
 input_folder/
+Others/
 __pycache__/
+venv/
